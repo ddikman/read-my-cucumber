@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": "./bin/read-my-cucumber.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ddikman/read-my-cucumber.git"
