@@ -11,7 +11,9 @@ jobs:
           node-version: 16
           
       - name: Generate dist folder
-        run: ./bin/read-my-cucumber.js test-project
+        run: |
+          npm install
+          ./bin/read-my-cucumber.js test-project
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
