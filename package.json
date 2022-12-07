@@ -4,7 +4,8 @@
   "description": "A javascript based cucumber document generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "read-my-cucumber test-project",
+    "test-watch": "nodemon --exec \"npm test\""
   },
   "bin": "./bin/read-my-cucumber.js",
   "repository": {
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/ddikman/read-my-cucumber/issues"
   },
-  "homepage": "https://github.com/ddikman/read-my-cucumber#readme"
+  "homepage": "https://github.com/ddikman/read-my-cucumber#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "@cucumber/gherkin": "^25.0.2"
+  }
 }
