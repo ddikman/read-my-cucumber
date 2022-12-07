@@ -2,6 +2,8 @@
 
 A cucumber document generator
 
+See a [live example](https://ddikman.github.io/read-my-cucumber)
+
 ## Usage
 
 ```
