@@ -1,6 +1,6 @@
 {
   "name": "read-my-cucumber",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A javascript based cucumber document generator",
   "main": ".bin/read-my-cucumber.js",
   "keywords": [
