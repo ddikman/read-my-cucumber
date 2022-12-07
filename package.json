@@ -2,7 +2,12 @@
   "name": "read-my-cucumber",
   "version": "1.0.0",
   "description": "A javascript based cucumber document generator",
-  "main": "index.js",
+  "main": ".bin/read-my-cucumber.js",
+  "keywords": [
+    "cucumber",
+    "gherkin",
+    "documentation",
+    "generator"],
   "scripts": {
     "test": "read-my-cucumber test-project",
     "test-watch": "nodemon -e pug,js,feature --exec \"npm test\""
@@ -12,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/ddikman/read-my-cucumber.git"
   },
-  "author": "",
+  "author": "David Dikman",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ddikman/read-my-cucumber/issues"
