@@ -1,0 +1,23 @@
+html
+    head
+    body
+        h1 Hello World!
+
+        each feature in features
+            h1= feature.feature.name
+            p= feature.feature.description
+            
+            div
+                h2 Scenarios
+                each scenario in feature.feature.children
+                    h3= scenario.scenario.name
+                    blockquote 
+                        p= scenario.scenario.description
+                        each step in scenario.scenario.steps
+                            p
+                                span.keyword= step.keyword
+                                span= step.text
+
+            div.tags
+                each tag in feature.feature.tags
+                    span.tag= tag.name

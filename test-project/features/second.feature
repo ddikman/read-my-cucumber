@@ -1,9 +1,5 @@
-@sometag
-Feature: This is a cucumber feature
-    With a description
-
-    @scenariotag
-    Scenario: This is a cucumber scenario
+Feature: Another feature
+    Scenario: Another scenario
         Given I have a step
         When I have another step
         Then I have a third step with <result>
