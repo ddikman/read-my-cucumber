@@ -2,7 +2,7 @@
 
 A cucumber document generator
 
-## Usage
+## Usage
 
 ```
 npx read-my-cucumber <feature-folder>`
