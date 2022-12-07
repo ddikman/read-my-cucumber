@@ -1,10 +1,10 @@
 Feature: Another feature
     Scenario: Another scenario
         Given I have a step
-        When I have another step
+        When I do <input>
         Then I have a third step with <result>
 
         Examples:
-            | result |
-            | success |
-            | failure |
+            | input | result |
+            | action a | success |
+            | action b | failure |

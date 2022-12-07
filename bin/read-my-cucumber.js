@@ -6,6 +6,7 @@ const path = args[0];
 var fs = require('fs').promises
 const gherkinParser = require('../src/gherkinParser.js')
 const pug = require('pug');
+const { table } = require('console');
 
 async function getFeatureFiles(path) {
     const isFile = (await fs.lstat(path)).isFile()
@@ -36,13 +37,46 @@ async function pathExists(path) {
     }
 }
 
+function simplifyJson(gherkinJson) {
+    return gherkinJson.map((entry) => {
+        const feature = entry.feature
+        return {
+            name: feature.name,
+            description: feature.description.trim(),
+            tags: feature.tags.map((entry) => entry.name),
+            scenarios: feature.children.map((entry) => {
+                const scenario = entry.scenario
+                return {
+                    name: scenario.name,
+                    tags: scenario.tags.map((entry) => entry.name),
+                    description: scenario.description.trim(),
+                    steps: scenario.steps.map((step) => {
+                        return {
+                            keyword: step.keyword,
+                            text: step.text.trim()
+                        }
+                    }),
+                    examples: scenario.examples.map((example) => {
+                        return {
+                            name: example.name,
+                            header: example.tableHeader.cells.map((entry) => entry.value),
+                            header: example.tableBody.map((row) => {
+                                return row.cells.map((entry) => entry.value)
+                            }),
+                        }
+                    })
+                }
+            })
+        }
+    })
+}
 
 // run an async inline function
 (async () => {
     try {
         const files = await getFeatureFiles(path)
         const featureFiles = await Promise.all(files.map((file) => parseFeatureFile(file)))
-        const features = featureFiles.reduce((acc, val) => acc.concat(val), [])
+        const features = simplifyJson(featureFiles.reduce((acc, val) => acc.concat(val), []))
         console.log(JSON.stringify(features, null, 2))
         
         if (await pathExists('dist')) {
